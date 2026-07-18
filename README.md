@@ -40,8 +40,8 @@ DeviceProcessEvents
    ```kql
    DeviceNetworkEvents
    | where ActionType == "ConnectionFailed"
-   | summarize ConnectionCount = count() by DeviceName, ActionType, LocalIP
-   | order by ConnectionCount
+   | summarize FailedConnectionsAttempts = count() by DeviceName, ActionType, LocalIP, RemoteIP
+   | order by FailedConnectionsAttempts desc
    ```
 
 <img width="853" height="598" alt="slowdown" src="https://github.com/user-attachments/assets/b45f6e96-30f7-4edd-8d79-f5f9f9c2b53b" />
