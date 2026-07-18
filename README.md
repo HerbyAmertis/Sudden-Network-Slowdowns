@@ -53,11 +53,12 @@ DeviceProcessEvents
 
    **Detection Query (KQL):**
    ```kql
-   let IPInQuestion = "10.0.0.5";
    DeviceNetworkEvents
+   | where TimeGenerated > ago(4h)
    | where ActionType == "ConnectionFailed"
-   | where LocalIP == IPInQuestion
-   | order by Timestamp desc
+   | where LocalIP == "10.1.0.106"
+   | project TimeGenerated, DeviceName, LocalIP, RemoteIP, RemotePort, Protocol
+   | order by TimeGenerated desc
    ```
 <img width="950" height="763" alt="slowdown1" src="https://github.com/user-attachments/assets/6c67c8fd-49e1-4e84-a74e-c337a7007f01" />
 
@@ -69,8 +70,8 @@ DeviceProcessEvents
 
    **Detection Query (KQL):**
 ```kql
-let VMName = "windows-target-1";
-let specificTime = datetime(2025-01-06T06:37:00.774381Z);
+let VMName = "kingsvm";
+let specificTime = datetime(2026-07-18T01:25:42.8714557Z);
 DeviceProcessEvents
 | where Timestamp between ((specificTime - 10m) .. (specificTime + 10m))
 | where DeviceName == VMName
@@ -116,12 +117,12 @@ DeviceProcessEvents
 ## Created By:
 - **Author Name**: Herby Amertis
 - **Author Contact**: https://www.linkedin.com/in/herby-amertis/
-- **Date**: Jan 2025
+- **Date**: Jul 2026
 
 ## Validated By:
 - **Reviewer Name**: Josh Madakor
 - **Reviewer Contact**: https://www.linkedin.com/in/joshmadakor/
-- **Validation Date**: Jan 2025
+- **Validation Date**: Jul 2026
 
 ---
 
