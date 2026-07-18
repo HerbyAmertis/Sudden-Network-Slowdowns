@@ -44,7 +44,8 @@ DeviceProcessEvents
    | order by ConnectionCount
    ```
 
-![Screenshot 2025-01-06 104150](https://github.com/user-attachments/assets/2eb708ed-7191-4219-b1a8-7fd416eee0c2)
+<img width="853" height="598" alt="slowdown" src="https://github.com/user-attachments/assets/b45f6e96-30f7-4edd-8d79-f5f9f9c2b53b" />
+
 
 
 2. **⚙️ Process Analysis:**
@@ -58,7 +59,8 @@ DeviceProcessEvents
    | where LocalIP == IPInQuestion
    | order by Timestamp desc
    ```
-![Screenshot 2025-01-06 110119](https://github.com/user-attachments/assets/0a413b76-a739-4779-ac8a-aa3cd4a8ff9e)
+<img width="950" height="763" alt="slowdown1" src="https://github.com/user-attachments/assets/6c67c8fd-49e1-4e84-a74e-c337a7007f01" />
+
 
    
 
@@ -75,13 +77,15 @@ DeviceProcessEvents
 | order by Timestamp desc
 | project Timestamp, FileName, InitiatingProcessCommandLine
 ```
-![Screenshot 2025-01-13 161326](https://github.com/user-attachments/assets/ad26dcfb-2c43-4674-8a14-f926415d9ee6)
+<img width="735" height="679" alt="slowdown3" src="https://github.com/user-attachments/assets/168f10e4-9f84-46d2-89d8-4868c8a91b39" />
+
 
 5. **📝 Response:**
    - We observed the port scan script was launched by the SYSTEM account. This is not expected behavior and it is not something that was setup by the admins. I isolated the device and ran a malware scan. The malware scan produced no results, so out of caution, I kept the device isolated and put in a ticket to have it re-image/rebuilt. Shared findings with the manager, highlighting automated archive creation. Awaiting further instructions.
  
 
-![Screenshot 2025-01-06 112548](https://github.com/user-attachments/assets/545363b9-cf69-4609-b40a-1af34c18c86e)
+<img width="1000" height="560" alt="slowdown2" src="https://github.com/user-attachments/assets/f2127629-13ad-454c-860b-db76b9da83ca" />
+
 
 
 ---
